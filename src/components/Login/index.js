@@ -23,7 +23,7 @@ export const Login = () => {
       .post("https://volatile-admin-api.herokuapp.com/auth/login", user)
       .then((res) => {
         localStorage.setItem("token", res.data.access_token);
-        dispatch(allActions.userActions.login({ user }));
+        dispatch(allActions.userActions.login(res.data.access_token));
         history.push("/");
       })
       .catch((error) => {

@@ -1,15 +1,16 @@
 import { log_in, check } from "../authTypes";
 
-const login = (userObj) => {
+const login = (token) => {
   return {
     type: log_in,
-    payload: userObj,
+    payload: token,
   };
 };
 
-const loginCheck = () => {
+const loginCheck = (token) => {
   return {
     type: check,
+    payload: token,
   };
 };
 

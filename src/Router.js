@@ -17,16 +17,17 @@ import allActions from "./redux/auth/actions/index";
 export const Routers = () => {
   const isAuth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (!isAuth.loggedIn) {
-      dispatch(allActions.userActions.loginCheck());
+      dispatch(allActions.userActions.loginCheck(token));
     }
   }, []);
 
   return (
     <div>
-      {isAuth.loggedIn && (
+      {token && (
         <Router>
           <Header />
           <Switch>
@@ -38,7 +39,7 @@ export const Routers = () => {
           </Switch>
         </Router>
       )}
-      {!isAuth.loggedIn && (
+      {!token && (
         <Router>
           <Switch>
             <Route exact path="/login" component={Login} />
