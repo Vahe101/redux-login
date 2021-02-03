@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   BrowserRouter as Router,
@@ -12,20 +12,15 @@ import { Header } from "./components/common/Header";
 import { Login } from "./components/Login";
 import { Products } from "./components/Product";
 import { Workers } from "./components/Worker";
-import { check } from "./redux/auth/authTypes";
 import allActions from "./redux/auth/actions/index";
 
 export const Routers = () => {
-  const isAuth = useSelector((state) => state.currentUser);
+  const isAuth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
-  const action = {
-    type: check,
-  };
 
   useEffect(() => {
     if (!isAuth.loggedIn) {
-      dispatch(allActions.userActions.loginCheck(action));
+      dispatch(allActions.userActions.loginCheck());
     }
   }, []);
 

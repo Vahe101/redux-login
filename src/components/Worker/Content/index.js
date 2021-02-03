@@ -18,6 +18,7 @@ export const Content = () => {
           <li>9. Sergey Ghazaryan - Software Developer</li>
           <li>10. Suren Melqonyan - Software Developer</li>
           <li>11. Arpi Tonoyan - Part Time Developer</li>
+          <li>12. Sveta Danielyan - Administrative Assistant</li>
         </ol>
       </div>
       <div className="workers">

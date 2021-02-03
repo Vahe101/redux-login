@@ -6,11 +6,11 @@ const initialState = {
   loggedIn: false,
 };
 
-export const currentUser = (state = initialState, action) => {
+export const auth = (state = initialState, action) => {
   switch (action.type) {
     case log_in:
       return {
-        type: action.type,
+        type: log_in,
         user: action.payload,
         loggedIn: true,
       };
@@ -34,7 +34,7 @@ export const inspector = (state = initialState, action) => {
     }
   }
   return {
-    type: action.type,
+    type: "",
     loggedIn: false,
   };
 };

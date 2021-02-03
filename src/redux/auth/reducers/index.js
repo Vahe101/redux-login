@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { currentUser, inspector } from "./currentUser";
+import { auth, inspector } from "./currentUser";
 
 const rootReducer = combineReducers({
-  currentUser,
+  auth,
   inspector,
 });
 

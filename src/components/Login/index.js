@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import allActions from "../../redux/auth/actions/index";
 import { Input } from "../shared";
-import { log_in } from "../../redux/auth/authTypes";
 
 import "./index.scss";
 
@@ -20,16 +19,11 @@ export const Login = () => {
       password: password,
     };
 
-    const action = {
-      type: log_in,
-      payload: { user },
-    };
-
     await axios
       .post("https://volatile-admin-api.herokuapp.com/auth/login", user)
       .then((res) => {
         localStorage.setItem("token", res.data.access_token);
-        dispatch(allActions.userActions.login(action));
+        dispatch(allActions.userActions.login({ user }));
         history.push("/");
       })
       .catch((error) => {
